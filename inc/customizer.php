@@ -29,7 +29,13 @@ function cust_customizer_settings($wp_customizer){
 		'section'=>'cust_services',
 		'settings'=>'cust_services_subheading',
 		'type'=>'textarea',
-		'active_callback' => 'service_display_subheading' //We can also pass an anonymous function
+		//'active_callback' => 'service_display_subheading' //We can also pass an anonymous function
+		'active_callback' => function(){
+			if(get_theme_mod('cust_services_display_subheading') == 1){
+				return true;
+			}
+			return false;
+		}
 	));
 
 	$wp_customizer->add_setting('cust_services_display_subheading',array(
@@ -189,9 +195,9 @@ function cust_customizer_settings($wp_customizer){
 }
 add_action('customize_register','cust_customizer_settings');
 
-function service_display_subheading(){
-	if(get_theme_mod('cust_services_display_subheading') == 1){
-		return true;
-	}
-	return false;
-}
+// function service_display_subheading(){
+// 	if(get_theme_mod('cust_services_display_subheading') == 1){
+// 		return true;
+// 	}
+// 	return false;
+// }
