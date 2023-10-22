@@ -55,6 +55,22 @@ function cust_customizer_settings($wp_customizer){
 	)));
 
 
+	$wp_customizer->add_setting('cust_services_number_of_items', array(
+		'default' => '4',
+		'transport' => 'refresh'
+	));
+	$wp_customizer->add_control('cust_services_number_of_items_ctrl',array(
+		'label'=>__('Number of Items','customizer'),
+		'section'=>'cust_services',
+		'settings'=>'cust_services_number_of_items',
+		'type'=>'select',
+		'choices' => array(
+			'4' => '3 in Each Row',
+			'6' => '2 in Each Row'
+		)
+	));
+
+
 	// Other controls
 	$wp_customizer->add_section('cust_others',array(
 		'title'=>__('Other Controls','customizer'),
