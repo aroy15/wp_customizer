@@ -8,7 +8,7 @@ function cust_customizer_settings($wp_customizer){
 
 	$wp_customizer->add_setting('cust_services_heading',array(
 		'default'=>"Mission Statement",
-		'transport'=>'refresh', //postMessage
+		'transport'=>'postMessage', //postMessage
 //		'type'=>'option' //theme_mod or option
 	));
 
