@@ -45,7 +45,7 @@ function cust_customizer_settings($wp_customizer){
 
 	$wp_customizer->add_setting('cust_services_icon_color', array(
 		'default' => '#dd2d6a',
-		'transport' => 'refresh'
+		'transport' => 'postMessage'
 	));
 
 	$wp_customizer->add_control(new WP_Customize_Color_Control($wp_customizer, 'cust_icon_color_ctrl', array(
