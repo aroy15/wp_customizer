@@ -3,7 +3,10 @@
 function cust_customizer_settings($wp_customizer){
 	$wp_customizer->add_section('cust_services',array(
 		'title'=>__('Services','customizer'),
-		'priority'=>'30'
+		'priority'=>'30',
+		'active_callback' => function(){
+			return is_page_template('page-templates/landing.php');
+		}
 	));
 
 	$wp_customizer->add_setting('cust_services_heading',array(
@@ -81,7 +84,10 @@ function cust_customizer_settings($wp_customizer){
 	// Other controls
 	$wp_customizer->add_section('cust_others',array(
 		'title'=>__('Other Controls','customizer'),
-		'priority'=>'40'
+		'priority'=>'40',
+		'active_callback' => function(){
+			return is_page_template('page-templates/landing.php');
+		}
 	));
 
 	$wp_customizer->add_setting('cust_others_demo_radio',array(
@@ -191,6 +197,28 @@ function cust_customizer_settings($wp_customizer){
 		'section'=>'cust_others',
 		'settings'=>'cust_others_html5_week',
 		'type'=>'week',
+	));
+
+
+	// About Page
+	$wp_customizer->add_section('cust_about', array(
+		'title' => __('About Page', 'customizer'),
+		'priority' => '40',
+		'active_callback' => function(){
+			return is_page_template('page-templates/about.php');
+		}
+	));
+
+	$wp_customizer->add_setting('cust_about_heading', array(
+		'default' => 'About Page Heading',
+		'transport' => 'refresh'
+	));
+
+	$wp_customizer->add_control('cust_about_heading_ctrl', array(
+		'label' => __('About Heading', 'customizer'),
+		'section' => 'cust_about',
+		'settings' => 'cust_about_heading',
+		'type' => 'text'
 	));
 }
 add_action('customize_register','cust_customizer_settings');
