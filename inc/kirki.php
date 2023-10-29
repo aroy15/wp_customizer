@@ -81,6 +81,32 @@ Kirki::add_field('customizer_section_one', array(
     ],
 ));
 
+Kirki::add_field('customizer_section_one', array(
+    'type'        => 'typography',
+    'settings'    => 'typography_setting',
+    'label'       => esc_html__( 'Typography Control', 'customizer' ),
+    'description' => esc_html__( 'The full set of options.', 'customizer' ),
+    'section'     => 'customizer_section_one',
+    'priority'    => 10,
+    'transport'   => 'auto',
+    'default'     => [
+        'font-family'     => 'Roboto',
+        'variant'         => 'regular',
+        'font-style'      => 'normal',
+        'color'           => '#333333',
+        'font-size'       => '14px',
+        'line-height'     => '1.5',
+        'letter-spacing'  => '0',
+        'text-transform'  => 'none',
+        'text-decoration' => 'none',
+        'text-align'      => 'left',
+    ],
+    'output'      => [
+        [
+            'element' => 'body',
+        ],
+    ],
+));
 
 // another section under 'About Panel'
 Kirki::add_section('customizer_section_two', array(
