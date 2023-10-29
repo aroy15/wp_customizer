@@ -211,20 +211,29 @@ function cust_customizer_settings($wp_customizer){
 
 	$wp_customizer->add_setting('cust_about_heading', array(
 		'default' => 'About Page Heading',
-		'transport' => 'refresh'
+		'transport' => 'postMessage'
 	));
 
-	$wp_customizer->add_control('cust_about_heading_ctrl', array(
+	$wp_customizer->add_control('cust_about_heading', array(
 		'label' => __('About Heading', 'customizer'),
 		'section' => 'cust_about',
-		'settings' => 'cust_about_heading',
 		'type' => 'text'
 	));
 
+	$wp_customizer->add_setting('cust_display_about', array(
+		'default' => 1,
+		'transport' => 'postMessage'
+	));
+
+	$wp_customizer->add_control('cust_display_about', array(
+		'label' => __('Display About Section', 'customizer'),
+		'section' => 'cust_about',
+		'type' => 'checkbox'
+	));
 
 	$wp_customizer->add_setting('cust_about_description', array(
 		'default' => __('About Page Heading', 'customizer'),
-		'transport' => 'refresh'
+		'transport' => 'postMessage'
 	));
 	$wp_customizer->add_control('cust_about_description', array(		
 		'label' => __('About Page Heading', 'customizer'),
@@ -233,11 +242,20 @@ function cust_customizer_settings($wp_customizer){
 	));
 
 	// Show edit pen icon
-	$wp_customizer->selective_refresh->add_partial('about_section', array(
+	$wp_customizer->selective_refresh->add_partial('about_section_heading', array(
 		'selector' => '#about-heading',
 		'settings' => 'cust_about_heading', // we can also pass an array if we have multiple seetings
 		'render_callback' => function(){
 			return get_theme_mod('cust_about_heading');
+		}
+	));
+
+	// Show edit pen icon
+	$wp_customizer->selective_refresh->add_partial('about_section_description', array(
+		'selector' => '#about-description',
+		'settings' => 'cust_about_description', // we can also pass an array if we have multiple seetings
+		'render_callback' => function(){
+			return apply_filters('the_content', get_theme_mod('cust_about_description'));
 		}
 	));
 }

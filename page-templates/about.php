@@ -23,9 +23,11 @@
                     echo esc_html(get_theme_mod('cust_about_heading', __('About Page Heading', 'customizer')));
                     ?>
                 </h1>
-                <?php
-                    echo apply_filters('the_content', get_theme_mod('cust_about_description'));
-                ?>
+                <div id="about-description">
+                    <?php
+                        echo apply_filters('the_content', get_theme_mod('cust_about_description'));
+                    ?>
+                </div>
             </div>
         </div>
     </div>
