@@ -220,6 +220,26 @@ function cust_customizer_settings($wp_customizer){
 		'settings' => 'cust_about_heading',
 		'type' => 'text'
 	));
+
+
+	$wp_customizer->add_setting('cust_about_description', array(
+		'default' => __('About Page Heading', 'customizer'),
+		'transport' => 'refresh'
+	));
+	$wp_customizer->add_control('cust_about_description', array(		
+		'label' => __('About Page Heading', 'customizer'),
+		'section' => 'cust_about',
+		'type' => 'textarea'
+	));
+
+	// Show edit pen icon
+	$wp_customizer->selective_refresh->add_partial('about_section', array(
+		'selector' => '#about-heading',
+		'settings' => 'cust_about_heading', // we can also pass an array if we have multiple seetings
+		'render_callback' => function(){
+			return get_theme_mod('cust_about_heading');
+		}
+	));
 }
 add_action('customize_register','cust_customizer_settings');
 

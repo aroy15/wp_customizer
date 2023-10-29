@@ -18,12 +18,14 @@
     <div class="row">
         <div class="col-md-12">
             <div class="mission section">
-                <h1 class="heading" id="service-heading">
+                <h1 class="heading" id="about-heading">
                     <?php
                     echo esc_html(get_theme_mod('cust_about_heading', __('About Page Heading', 'customizer')));
                     ?>
                 </h1>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non nihil illo fugit id odit recusandae saepe consequatur doloribus eius ipsum.</p>
+                <?php
+                    echo apply_filters('the_content', get_theme_mod('cust_about_description'));
+                ?>
             </div>
         </div>
     </div>
