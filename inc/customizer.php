@@ -296,6 +296,39 @@ function cust_customizer_settings($wp_customizer){
 			)
 		)
 	);
+
+
+	$wp_customizer->add_setting('test_file', array(
+		'transport' => 'postMessage'
+	));
+	$wp_customizer->add_control(
+		new WP_Customize_Upload_Control(
+			$wp_customizer,
+			'test_file',
+			array(
+				'label' => __('Upload a File', 'customizer'),
+				'section' => 'image_and_upload',
+			)
+		)
+	);
+
+
+	$wp_customizer->add_setting('test_image3', array(
+		'transport' => 'postMessage'
+	));
+	$wp_customizer->add_control(
+		new WP_Customize_Cropped_Image_Control(
+			$wp_customizer,
+			'test_image3',
+			array(
+				'label' => __('Upload a Image', 'customizer'),
+				'section' => 'image_and_upload',
+				// 'flex_width' => true,
+				'height' => '250',
+				'width' => '400'
+			)
+		)
+	);
 }
 add_action('customize_register','cust_customizer_settings');
 

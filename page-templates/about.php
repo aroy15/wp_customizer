@@ -26,21 +26,35 @@
                 <div id="about-description">
                     <?php
                         echo apply_filters('the_content', get_theme_mod('cust_about_description'));
-                    ?>
-                    <?php
-                    echo get_theme_mod('test_image');
-                    ?>
-                    <br>
-                    <?php
-                    $attachment_id =  attachment_url_to_postid(get_theme_mod('test_image'));//Get Image Id
-                    echo wp_get_attachment_image($attachment_id, 'large');
-                    ?>
-                    <br>
-                    <?php
-                    $attachment2_id =  get_theme_mod('test_image2');//Get Id directly without attachment_url_to_postid function using WP_Customize_Media_Control
-                    echo wp_get_attachment_image($attachment2_id, 'large');
-                    ?>
+                    ?>                   
                 </div>
+                <?php
+                echo get_theme_mod('test_image');
+                ?>
+                <br>
+                <?php
+                $attachment_id =  attachment_url_to_postid(get_theme_mod('test_image'));//Get Image Id
+                echo wp_get_attachment_image($attachment_id, 'large');
+                ?>
+                <br>
+                <?php
+                $attachment2_id =  get_theme_mod('test_image2');//Get Id directly without attachment_url_to_postid function using WP_Customize_Media_Control
+                echo wp_get_attachment_image($attachment2_id, 'large');
+                ?>
+                <br>
+                <?php
+                $attachment_file_url =  get_theme_mod('test_file');
+                echo $attachment_file_url;
+                echo "<br>";
+                echo attachment_url_to_postid($attachment_file_url);//get file id
+                ?>
+                <br>
+                <?php
+                $attachment3 =  get_theme_mod('test_image3');
+                echo "Cropped: ". $attachment3;
+                echo "<br>";
+                echo wp_get_attachment_image($attachment3, 'large');
+                ?>
             </div>
         </div>
     </div>
