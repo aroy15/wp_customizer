@@ -55,6 +55,17 @@
                 echo "<br>";
                 echo wp_get_attachment_image($attachment3, 'large');
                 ?>
+
+                <!-- Get data using Kirki customizer plugin -->
+                <br>
+                <?php
+                echo esc_html(get_theme_mod('my_setting'));
+                ?>
+                <br>
+                <?php
+                echo apply_filters('the_content',get_theme_mod('about_dsc_setting'));
+                ?>
+                
             </div>
         </div>
     </div>
