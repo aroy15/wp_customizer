@@ -27,6 +27,14 @@
                     <?php
                         echo apply_filters('the_content', get_theme_mod('cust_about_description'));
                     ?>
+                    <?php
+                    echo get_theme_mod('test_image');
+                    ?>
+                    <br>
+                    <?php
+                    $attachment_id =  attachment_url_to_postid(get_theme_mod('test_image'));//Get Image Id
+                    echo wp_get_attachment_image($attachment_id, 'large');
+                    ?>
                 </div>
             </div>
         </div>
