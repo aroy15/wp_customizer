@@ -124,3 +124,21 @@ Kirki::add_field('customizer_section_two', array(
     'default'  => esc_html__( 'This is a default Textarea value', 'customizer' ),
     'priority' => 10,
 ));
+
+// Sortable field
+Kirki::add_field('customizer_section_two', array(
+    'type'     => 'sortable',
+    'settings' => 'sortable_setting',
+    'label'    => __( 'This is the label', 'customizer' ),
+    'section'  => 'customizer_section_two',
+    'default'  => [ 'option3', 'option1', 'option4' ],
+    'priority' => 10,
+    'choices'  => [
+        'option1' => esc_html__( 'Option 1', 'customizer' ),
+        'option2' => esc_html__( 'Option 2', 'customizer' ),
+        'option3' => esc_html__( 'Option 3', 'customizer' ),
+        'option4' => esc_html__( 'Option 4', 'customizer' ),
+        'option5' => esc_html__( 'Option 5', 'customizer' ),
+        'option6' => esc_html__( 'Option 6', 'customizer' ),
+    ],
+));
