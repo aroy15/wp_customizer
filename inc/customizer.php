@@ -279,6 +279,23 @@ function cust_customizer_settings($wp_customizer){
 			)
 		)
 	);
+
+
+	$wp_customizer->add_setting('test_image2', array(
+		'default' => 'Upload Image',
+		'transport' => 'postMessage'
+	));
+	$wp_customizer->add_control(
+		new WP_Customize_Media_Control(
+			$wp_customizer,
+			'test_image2',
+			array(
+				'label' => __('Upload an Image with media control', 'customizer'),
+				'section' => 'image_and_upload',
+				'settings' => 'test_image2',
+			)
+		)
+	);
 }
 add_action('customize_register','cust_customizer_settings');
 

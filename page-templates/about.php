@@ -35,6 +35,11 @@
                     $attachment_id =  attachment_url_to_postid(get_theme_mod('test_image'));//Get Image Id
                     echo wp_get_attachment_image($attachment_id, 'large');
                     ?>
+                    <br>
+                    <?php
+                    $attachment2_id =  get_theme_mod('test_image2');//Get Id directly without attachment_url_to_postid function using WP_Customize_Media_Control
+                    echo wp_get_attachment_image($attachment2_id, 'large');
+                    ?>
                 </div>
             </div>
         </div>
